@@ -1,3 +1,29 @@
+.evil-token-container {
+    text-align: center;
+    margin: 50px auto;
+}
+
+.evil-token-gif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.evil-token-gif img {
+    width: 300px; /* Adjust size as needed */
+    height: auto;
+    border: 8px solid red; /* Thick red border */
+    border-radius: 15px; /* Slight rounded corners for a polished look */
+    box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.8);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.evil-token-gif img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 30px rgba(255, 0, 0, 1);
+}
+
 .evil-box {
     transition: all 0.3s ease-in-out;
     border: 2px solid red;
