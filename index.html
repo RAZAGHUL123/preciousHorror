@@ -115,7 +115,10 @@
 
         <h1 class="mt-5 text-danger fw-bold evil-title">Evil</h1>
         <p class="lead text-light evil-subtitle">let us in</p>
-
+        <div class="evil-quote-container text-center mt-5">
+            <h2 class="text-danger">Words of the Abyss</h2>
+            <p id="evilQuote" class="text-light fs-5">Loading wisdom...</p>
+        </div>
         <!-- Evil Token Statement -->
         <div class="evil-statement bg-dark text-light p-4 rounded shadow-lg">
             <h2 class="text-danger">Evil Token & Evil Protocol</h2>
@@ -265,7 +268,20 @@
             }, 1000);
         });
     </script>
+<script>
+    async function fetchEvilQuote() {
+        try {
+            let response = await fetch("https://evilinsult.com/generate_insult.php?lang=en&type=json");
+            let data = await response.json();
+            document.getElementById("evilQuote").textContent = `"${data.insult}"`;
+        } catch (error) {
+            document.getElementById("evilQuote").textContent = `"Power is taken, never given."`;
+        }
+    }
 
+    // Fetch Evil Quote on Page Load
+    document.addEventListener("DOMContentLoaded", fetchEvilQuote);
+</script>
     <!-- External Blood Meter Script -->
     <script src="scripts/blood-meter.js"></script>
 
