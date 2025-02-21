@@ -20,8 +20,8 @@
             height: 100vh;
         }
 
-        /* Fullscreen GIF container */
-        .fullscreen-gif {
+        /* Fullscreen GIF */
+        #introGif {
             position: fixed;
             top: 0;
             left: 0;
@@ -32,7 +32,7 @@
             background: black;
         }
 
-        /* Hidden menu content */
+        /* Hidden main content */
         .main-content {
             display: none;
             position: relative;
@@ -77,13 +77,13 @@
 </head>
 <body>
 
-    <!-- Fullscreen intro horror GIF -->
+    <!-- Fullscreen horror GIF -->
     <img src="images/staticSKULL.gif" alt="Creepy Skull" id="introGif">
 
     <!-- Enter Site button -->
     <div class="enter-site" id="enterSite">Enter Site</div>
 
-    <!-- Main content (hidden until intro ends) -->
+    <!-- Main content (hidden initially) -->
     <div class="main-content" id="mainContent">
         <div class="container">
             <h1 class="mt-5">Welcome to My Horror Website</h1>
@@ -101,12 +101,18 @@
 
     <script>
         document.getElementById("enterSite").addEventListener("click", function() {
-            // Hide intro GIF and enter button
-            document.getElementById("introGif").style.display = "none";
-            document.getElementById("enterSite").style.display = "none";
+            // Smooth fade-out effect for GIF and button
+            document.getElementById("introGif").style.transition = "opacity 1s ease-out";
+            document.getElementById("enterSite").style.transition = "opacity 1s ease-out";
+            document.getElementById("introGif").style.opacity = "0";
+            document.getElementById("enterSite").style.opacity = "0";
 
-            // Show main content
-            document.getElementById("mainContent").style.display = "block";
+            // Wait for fade-out effect, then hide elements and show content
+            setTimeout(() => {
+                document.getElementById("introGif").style.display = "none";
+                document.getElementById("enterSite").style.display = "none";
+                document.getElementById("mainContent").style.display = "block";
+            }, 1000);
         });
     </script>
 
