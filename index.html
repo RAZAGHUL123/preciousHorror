@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Horror Website</title>
+
+    <!-- Bootstrap CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Custom Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: black;
+            color: white;
+            text-align: center;
+            height: 100vh;
+        }
+
+        /* Fullscreen GIF container */
+        .fullscreen-gif {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 10;
+            background: black;
+        }
+
+        /* Hidden menu content */
+        .main-content {
+            display: none;
+            position: relative;
+            z-index: 2;
+            padding-top: 50px;
+        }
+
+        /* Enter Site button */
+        .enter-site {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 20;
+            border: 2px solid white;
+            padding: 20px 40px;
+            font-size: 24px;
+            color: white;
+            text-transform: uppercase;
+            background: rgba(0, 0, 0, 0.7);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .enter-site:hover {
+            background: white;
+            color: black;
+        }
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: black;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fullscreen intro horror GIF -->
+    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWp3d2RkMGV0ZDdyOTR3bXZraHVhMzYzcXhsZnI0cWlxY2NkaHA2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kz6iUkQuGZmN5HfB0t/giphy.gif" class="fullscreen-gif" alt="Horror Intro" id="introGif">
+
+    <!-- Enter Site button -->
+    <div class="enter-site" id="enterSite">Enter Site</div>
+
+    <!-- Main content (hidden until intro ends) -->
+    <div class="main-content" id="mainContent">
+        <div class="container">
+            <h1 class="mt-5">Welcome to My Horror Website</h1>
+            <p class="lead">This is a quick Bootstrap 5 horror setup.</p>
+            <button class="btn btn-danger">Click Me</button>
+        </div>
+
+        <footer class="footer">
+            &copy; 2025 My Horror Website. All rights reserved.
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.getElementById("enterSite").addEventListener("click", function() {
+            // Hide intro GIF and enter button
+            document.getElementById("introGif").style.display = "none";
+            document.getElementById("enterSite").style.display = "none";
+
+            // Show main content
+            document.getElementById("mainContent").style.display = "block";
+        });
+    </script>
+
+</body>
+</html>
