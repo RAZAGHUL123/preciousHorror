@@ -168,8 +168,91 @@
             <button class="btn btn-outline-danger btn-lg mt-5 evil-btn">Join the Darkness</button>
         </div>
         
-        <!-- Call to Action -->
-        <button class="btn btn-outline-danger btn-lg mt-4">Join the Darkness</button>
+        .blood-meter-container {
+            margin: 50px auto;
+            width: 80%;
+            max-width: 600px;
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8);
+        }
+
+        .blood-meter {
+            width: 100%;
+            height: 30px;
+            background: #222;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blood-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to bottom, red, darkred);
+            transition: width 1s ease-in-out;
+            position: relative;
+        }
+
+        /* Blood Drip Effect */
+        .blood-fill::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 15px;
+            height: 15px;
+            background: red;
+            border-radius: 50%;
+            box-shadow: 0px 5px 10px rgba(255, 0, 0, 0.7);
+        }
+
+        .blood-text {
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: bold;
+            color: red;
+        }
+
+        /* Evil Button */
+        .evil-btn {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            background: red;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.8);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .evil-btn:hover {
+            background: darkred;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blood-meter-container">
+        <h2 class="text-danger">Evil Token Blood Meter</h2>
+        <p>Only <span class="text-danger">6,666,666,666</span> Evil Tokens will ever exist.</p>
+        
+        <!-- Blood Meter Bar -->
+        <div class="blood-meter">
+            <div class="blood-fill" id="bloodFill"></div>
+        </div>
+
+        <p class="blood-text">
+            Circulating Supply: <span id="circulatingSupply">0</span> / 6,666,666,666
+        </p>
+
+        <!-- Simulate Token Usage -->
+        <button class="evil-btn" onclick="drainBlood()">Summon Evil Tokens</button>
     </div>
     
 
